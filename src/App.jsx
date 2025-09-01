@@ -1,7 +1,7 @@
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 import ParticleMorphMulti from './Experience'
 import Light from './Light'
 import { Suspense } from 'react'
@@ -44,4 +44,8 @@ const App = () => {
     )
 }
 
+useGLTF.preload("/models/state0.glb")
+useGLTF.preload("/models/state1.glb")
+useGLTF.preload("/models/state2.glb")
+useGLTF.preload("/models/state3.glb")
 export default App
