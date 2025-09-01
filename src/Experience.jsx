@@ -204,7 +204,7 @@ export default function ParticleMorphMulti({
     cycleSeconds = 4,
     // Toggle dense clouds:
     useSurfaceSampling = true,
-    particleCount = 25000,
+    particleCount = 40000,
     normalizeModels = true,     // helps when some models seem to "disappear"
     normalizeTargetSize = 4,    // overall size after normalization
     // Visual tweaks
@@ -370,7 +370,7 @@ export default function ParticleMorphMulti({
     if (!geometry || !material) return null;
 
     return (
-        <points frustumCulled={false} scale={[4, 4, 4]}>
+        <points frustumCulled={false} scale={[3, 3, 3]}>
             <primitive object={geometry} attach="geometry" />
             <primitive object={material} attach="material" />
         </points>

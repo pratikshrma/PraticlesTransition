@@ -15,7 +15,7 @@ const App = () => {
                 toneMapping: THREE.ACESFilmicToneMapping,
                 outputColorSpace: THREE.SRGBColorSpace
             }}
-            camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 16] }}
+            camera={{ fov: 35, near: 0.1, far: 100, position: [10, 5, 16] }}
             onCreated={({ gl }) => gl.setClearColor("#160920")}
         >
             <Light />
