@@ -15,7 +15,10 @@ void main()
 {
     // Mixed position
     float noiseOrigin = simplexNoise3d(position * 0.2);
+    // float noiseOrigin=0.0;
     float noiseTarget = simplexNoise3d(aPositionTarget * 0.2);
+    // float noiseTarget = 0.0;
+    
     float noise = mix(noiseOrigin, noiseTarget, uProgress);
     noise = smoothstep(-1.0, 1.0, noise);
 

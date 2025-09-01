@@ -370,7 +370,7 @@ export default function ParticleMorphMulti({
     if (!geometry || !material) return null;
 
     return (
-        <points frustumCulled={false} scale={[3, 3, 3]}>
+        <points frustumCulled={false} scale={[2.5, 2.5, 2.5]}>
             <primitive object={geometry} attach="geometry" />
             <primitive object={material} attach="material" />
         </points>
