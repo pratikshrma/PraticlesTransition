@@ -1,7 +1,7 @@
 // src/ParticleMorphMulti.jsx
 import React, { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { useThree, useLoader } from "@react-three/fiber";
+import { useThree, useLoader, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler.js";
@@ -367,10 +367,16 @@ export default function ParticleMorphMulti({
         return () => clearInterval(id);
     }, [api, autoCycle, cycleSeconds]);
 
+    const mainRef = useRef()
+    useFrame((state, delta) => {
+        if (!mainRef.current) return
+        mainRef.current.rotation.y -= 0.05 * delta
+    })
+
     if (!geometry || !material) return null;
 
     return (
-        <points frustumCulled={false} scale={[2.5, 2.5, 2.5]}>
+        <points ref={mainRef} frustumCulled={false} scale={[2.5, 2.5, 2.5]}>
             <primitive object={geometry} attach="geometry" />
             <primitive object={material} attach="material" />
         </points>
